@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class AddAreaPane implements ActionListener {
     JButton calculateAreaButton;
+    JPanel areaPaneDown;
 
     public AddAreaPane(JTabbedPane tabbedPane) {
         addAreaPane(tabbedPane);
@@ -15,7 +16,7 @@ public class AddAreaPane implements ActionListener {
     private void addAreaPane(JTabbedPane tabbedPane) {
         JPanel areaPane = new JPanel();
         JPanel areaPaneUp = new JPanel();
-        JPanel areaPaneDown = new JPanel();
+        areaPaneDown = new JPanel();
 
         BorderLayout layout = new BorderLayout();
         areaPane.setLayout(layout);
@@ -24,19 +25,35 @@ public class AddAreaPane implements ActionListener {
         calculateAreaButton = new JButton("Oblicz");
         JTextField areaTextField = new JTextField("0", 5);
 
-        AddItemsToPanes addItems = new AddItemsToPanes(this, areaPaneUp, areaUnitsArray, calculateAreaButton, areaTextField, areaPaneDown);
+        AddItemsToPanes.addItemsToUpPane(this, areaPaneUp, areaUnitsArray, calculateAreaButton, areaTextField);
+
+        AddItemsToPanes.addItemsToDownPane(areaPaneDown, areaUnitsArray);
 
         areaPane.add(areaPaneUp, BorderLayout.NORTH);
         areaPane.add(areaPaneDown, BorderLayout.CENTER);
 
-        tabbedPane.add(areaPane, "Obaszar");
+        tabbedPane.add(areaPane, "Obszar");
     }
 
     public void actionPerformed(ActionEvent event) {
         Object source = event.getSource();
 
-        if (source == calculateAreaButton){
-            ;
+        if (source == calculateAreaButton) {
+            System.out.println("dupa");
+            for (Component jc : areaPaneDown.getComponents()) {
+                if (jc instanceof JLabel) {
+                    JLabel label = (JLabel) jc;
+                    System.out.println(label.getText());
+                }
+                if (jc instanceof JTextField) {
+//                    JTextField field = (JTextField) jc;
+                    String getValue = ((JTextField) jc).getText();
+                    System.out.println(getValue);
+                }
+                if (jc instanceof JPanel){
+                    System.out.println("dupa2");
+                }
+            }
         }
     }
 }
