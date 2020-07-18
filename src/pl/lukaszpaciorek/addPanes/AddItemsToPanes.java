@@ -22,7 +22,7 @@ public class AddItemsToPanes {
         paneIn.setLayout(new BoxLayout(paneIn, BoxLayout.Y_AXIS));
         for (String unit : unitsArray) {
             JPanel pane = new JPanel();
-            JTextField field = new JTextField("0", 5);
+            JTextField field = new JTextField("0", 10);
             field.setEditable(false);
             JLabel label = new JLabel(unit);
             label.setLabelFor(field);

@@ -5,9 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import pl.lukaszpaciorek.convertUnits.ConvertArea;
+
 public class AddAreaPane implements ActionListener {
+    String[] areaUnitsArray = {"centymetr^2", "metr^2", "kilometr^2", "cal^2", "stopa^2", "mila^2"};
     JButton calculateAreaButton;
-    JPanel areaPaneDown;
+    JPanel areaPaneUp;
 
     public AddAreaPane(JTabbedPane tabbedPane) {
         addAreaPane(tabbedPane);
@@ -15,18 +18,16 @@ public class AddAreaPane implements ActionListener {
 
     private void addAreaPane(JTabbedPane tabbedPane) {
         JPanel areaPane = new JPanel();
-        JPanel areaPaneUp = new JPanel();
-        areaPaneDown = new JPanel();
+        areaPaneUp = new JPanel();
+        JPanel areaPaneDown = new JPanel();
 
         BorderLayout layout = new BorderLayout();
         areaPane.setLayout(layout);
 
-        String[] areaUnitsArray = {"centymetr^2", "metr^2", "kilometr^2", "cal^2", "stopa^2", "mila^2"};
         calculateAreaButton = new JButton("Oblicz");
         JTextField areaTextField = new JTextField("0", 5);
 
         AddItemsToPanes.addItemsToUpPane(this, areaPaneUp, areaUnitsArray, calculateAreaButton, areaTextField);
-
         AddItemsToPanes.addItemsToDownPane(areaPaneDown, areaUnitsArray);
 
         areaPane.add(areaPaneUp, BorderLayout.NORTH);
@@ -39,21 +40,21 @@ public class AddAreaPane implements ActionListener {
         Object source = event.getSource();
 
         if (source == calculateAreaButton) {
-            System.out.println("dupa");
-            for (Component jc : areaPaneDown.getComponents()) {
-                if (jc instanceof JLabel) {
-                    JLabel label = (JLabel) jc;
-                    System.out.println(label.getText());
+            JComboBox box;
+            String valueFromUser = "";
+            String unitFromUser = "";
+
+            for (Component comp : areaPaneUp.getComponents()) {
+                if (comp instanceof JComboBox) {
+                    box = (JComboBox) comp;
+                    unitFromUser = (String) box.getSelectedItem();
                 }
-                if (jc instanceof JTextField) {
-//                    JTextField field = (JTextField) jc;
-                    String getValue = ((JTextField) jc).getText();
-                    System.out.println(getValue);
-                }
-                if (jc instanceof JPanel){
-                    System.out.println("dupa2");
+                if (comp instanceof JTextField) {
+                    valueFromUser = ((JTextField) comp).getText();
                 }
             }
+
+            ConvertArea convert = new ConvertArea(valueFromUser, unitFromUser, areaUnitsArray);
         }
     }
 }
