@@ -20,7 +20,7 @@ public class ConvertLength {
         switch (unitFromUserIn) {
             case "centymetr":
                 return Double.parseDouble(valueFromUserIn);
-            case "metr^2":
+            case "metr":
                 return Double.parseDouble(valueFromUserIn) * 100;
             case "kilometr":
                 return Double.parseDouble(valueFromUserIn) * 100000;

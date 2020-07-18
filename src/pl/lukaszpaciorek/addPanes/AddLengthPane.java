@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import pl.lukaszpaciorek.convertUnits.ConvertLength;
 import pl.lukaszpaciorek.math.MyMath;
 import pl.lukaszpaciorek.stringFormatting.StringFormatting;
-import pl.lukaszpaciorek.stringFormatting.StringFormatting.*;
 
 public class AddLengthPane implements ActionListener {
     String[] lengthUnitsArray = {"centymetr", "metr", "kilometr", "cal", "stopa", "mila"};
@@ -69,7 +68,7 @@ public class AddLengthPane implements ActionListener {
             if (comp instanceof JPanel) {
                 for (Component comp2 : ((JPanel) comp).getComponents()) {
                     if (comp2 instanceof JTextField) {
-                        ((JTextField) comp2).setText(StringFormatting.buildOutputString(Double.toString(MyMath.round(valuesIn[i], 2))));
+                        ((JTextField) comp2).setText(StringFormatting.buildOutputString(Double.toString(MyMath.round(valuesIn[i], 5))));
                     }
                 }
             }

@@ -21,8 +21,6 @@ public class StringFormatting {
             counter++;
         }
 
-        System.out.println(stringBuilder.toString());
-
         return stringBuilder.toString();
     }
 
