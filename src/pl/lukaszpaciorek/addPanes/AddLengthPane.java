@@ -6,8 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import pl.lukaszpaciorek.convertUnits.ConvertLength;
-import pl.lukaszpaciorek.math.MyMath;
-import pl.lukaszpaciorek.stringFormatting.StringFormatting;
+import pl.lukaszpaciorek.convertUnits.SetConvertedValues;
 
 public class AddLengthPane implements ActionListener {
     String[] lengthUnitsArray = {"centymetr", "metr", "kilometr", "cal", "stopa", "mila"};
@@ -58,21 +57,7 @@ public class AddLengthPane implements ActionListener {
             }
 
             ConvertLength convert = new ConvertLength(valueFromUser, unitFromUser);
-            setConvertedValues(convert.getConvertedLength());
-        }
-    }
-
-    private void setConvertedValues(double[] valuesIn) {
-        int i = 0;
-        for (Component comp : lengthPaneDown.getComponents()) {
-            if (comp instanceof JPanel) {
-                for (Component comp2 : ((JPanel) comp).getComponents()) {
-                    if (comp2 instanceof JTextField) {
-                        ((JTextField) comp2).setText(StringFormatting.buildOutputString(Double.toString(MyMath.round(valuesIn[i], 5))));
-                    }
-                }
-            }
-            i++;
+            SetConvertedValues setValues = new SetConvertedValues(convert.getConvertedLength(), lengthPaneDown);
         }
     }
 }
