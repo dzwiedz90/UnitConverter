@@ -27,7 +27,7 @@ public class AddAreaPane implements ActionListener {
 
         String[] areaUnitsArray = {"centymetr^2", "metr^2", "kilometr^2", "cal^2", "stopa^2", "mila^2"};
         calculateAreaButton = new JButton("Oblicz");
-        JTextField areaTextField = new JTextField("0", 5);
+        JTextField areaTextField = new JTextField("1", 5);
 
         AddItemsToPanes.addItemsToUpPane(this, areaPaneUp, areaUnitsArray, calculateAreaButton, areaTextField);
         AddItemsToPanes.addItemsToDownPane(areaPaneDown, areaUnitsArray);

@@ -4,7 +4,6 @@ public class ConvertSpeed {
     private double[] convertedValues = new double[6];
 
     public ConvertSpeed(String valueFromUserIn, String unitFromUserIn) {
-//        {"m/s", "km/s", "km/h", "mi/h", "węzły"}
         convertedValues[0] = convertMetersOnSecond(valueFromUserIn, unitFromUserIn);
         convertedValues[1] = convertKilometersOnSecond(convertedValues[0]);
         convertedValues[2] = convertKilometersOnHour(convertedValues[0]);
@@ -18,35 +17,33 @@ public class ConvertSpeed {
 
     private double convertMetersOnSecond(String valueFromUserIn, String unitFromUserIn) {
         switch (unitFromUserIn) {
-            case "centymetr":
+            case "m/s":
                 return Double.parseDouble(valueFromUserIn);
-            case "metr":
-                return Double.parseDouble(valueFromUserIn) * 100;
-            case "kilometr":
-                return Double.parseDouble(valueFromUserIn) * 100000;
-            case "cal":
-                return Double.parseDouble(valueFromUserIn) * 2.54;
-            case "stopa":
-                return Double.parseDouble(valueFromUserIn) * 30.48;
-            case "mila":
-                return Double.parseDouble(valueFromUserIn) * 160934.4;
+            case "km/s":
+                return Double.parseDouble(valueFromUserIn) * 1000;
+            case "km/h":
+                return Double.parseDouble(valueFromUserIn) * 0.277778;
+            case "mi/h":
+                return Double.parseDouble(valueFromUserIn) * 0.44704;
+            case "węzły":
+                return Double.parseDouble(valueFromUserIn) * 0.514444;
         }
         return 0;
     }
 
     private double convertKilometersOnSecond(double valueIn) {
-        return valueIn / 100000;
+        return valueIn / 1000;
     }
 
     private double convertKilometersOnHour(double valueIn) {
-        return valueIn / 100000;
+        return valueIn / 0.277778;
     }
 
     private double convertMilesOnHour(double valueIn) {
-        return valueIn / 2.54;
+        return valueIn / 0.44704;
     }
 
     private double convertKnots(double valueIn) {
-        return valueIn / 160934.4;
+        return valueIn / 0.514444;
     }
 }

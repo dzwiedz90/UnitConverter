@@ -22,7 +22,7 @@ public class AddTimePane implements ActionListener {
 
         String[] timeUnitsArray = {"sekunda", "minuta", "godzina", "dzień", "tydzień", "miesiąc", "rok"};
         calculateTimeButton = new JButton("Oblicz");
-        JTextField timeTextField = new JTextField("0", 5);
+        JTextField timeTextField = new JTextField("1", 5);
 
         AddItemsToPanes addItems = new AddItemsToPanes(this, timePaneUp, timeUnitsArray, calculateTimeButton, timeTextField, timePaneDown);
 

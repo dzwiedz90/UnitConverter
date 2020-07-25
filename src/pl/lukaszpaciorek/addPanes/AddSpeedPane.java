@@ -28,7 +28,7 @@ public class AddSpeedPane implements ActionListener {
 
         String[] speedUnitsArray = {"m/s", "km/s", "km/h", "mi/h", "węzły"};
         calculateSpeedButton = new JButton("Oblicz");
-        JTextField speedTextField = new JTextField("0", 5);
+        JTextField speedTextField = new JTextField("1", 5);
 
         AddItemsToPanes.addItemsToUpPane(this, speedPaneUp, speedUnitsArray, calculateSpeedButton, speedTextField);
         AddItemsToPanes.addItemsToDownPane(speedPaneDown, speedUnitsArray);

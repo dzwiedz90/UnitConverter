@@ -27,7 +27,7 @@ public class AddLengthPane implements ActionListener {
 
         String[] lengthUnitsArray = {"centymetr", "metr", "kilometr", "cal", "stopa", "mila"};
         calculateLengthButton = new JButton("Oblicz");
-        JTextField lengthTextField = new JTextField("0", 5);
+        JTextField lengthTextField = new JTextField("1", 5);
 
         AddItemsToPanes.addItemsToUpPane(this, lengthPaneUp, lengthUnitsArray, calculateLengthButton, lengthTextField);
         AddItemsToPanes.addItemsToDownPane(lengthPaneDown, lengthUnitsArray);

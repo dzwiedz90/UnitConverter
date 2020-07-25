@@ -27,7 +27,7 @@ public class AddPowerPane implements ActionListener {
 
         String[] powerUnitsArray = {"W", "kW", "MW", "koń mechaniczny"};
         calculatePowerButton = new JButton("Oblicz");
-        JTextField powerTextField = new JTextField("0", 5);
+        JTextField powerTextField = new JTextField("1", 5);
 
         AddItemsToPanes.addItemsToUpPane(this, powerPaneUp, powerUnitsArray, calculatePowerButton, powerTextField);
         AddItemsToPanes.addItemsToDownPane(powerPaneDown, powerUnitsArray);

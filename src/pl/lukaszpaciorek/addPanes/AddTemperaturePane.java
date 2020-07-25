@@ -22,7 +22,7 @@ public class AddTemperaturePane implements ActionListener {
 
         String[] temperatureUnitsArray = {"st. C", "st. F", "st. K"};
         calculateTemperatureButton = new JButton("Oblicz");
-        JTextField temperatureTextField = new JTextField("0", 5);
+        JTextField temperatureTextField = new JTextField("1", 5);
 
         AddItemsToPanes addItems = new AddItemsToPanes(this, temperaturePaneUp, temperatureUnitsArray, calculateTemperatureButton, temperatureTextField, temperaturePaneDown);
 

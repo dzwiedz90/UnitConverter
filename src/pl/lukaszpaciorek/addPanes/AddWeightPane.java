@@ -22,7 +22,7 @@ public class AddWeightPane implements ActionListener {
 
         String[] weightUnitsArray = {"gram", "dag", "kilogram", "lb(pound)", "tona"};
         calculateWeightButton = new JButton("Oblicz");
-        JTextField weightTextField = new JTextField("0", 5);
+        JTextField weightTextField = new JTextField("1", 5);
 
         AddItemsToPanes addItems = new AddItemsToPanes(this, weightPaneUp, weightUnitsArray, calculateWeightButton, weightTextField, weightPaneDown);
 
