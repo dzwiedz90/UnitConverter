@@ -27,8 +27,9 @@ public class ConvertSpeed {
                 return Double.parseDouble(valueFromUserIn) * 0.44704;
             case "węzły":
                 return Double.parseDouble(valueFromUserIn) * 0.514444;
+            default:
+                return 0;
         }
-        return 0;
     }
 
     private double convertKilometersOnSecond(double valueIn) {

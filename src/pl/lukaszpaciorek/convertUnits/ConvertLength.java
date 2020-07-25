@@ -30,8 +30,9 @@ public class ConvertLength {
                 return Double.parseDouble(valueFromUserIn) * 30.48;
             case "mila":
                 return Double.parseDouble(valueFromUserIn) * 160934.4;
+            default:
+                return 0;
         }
-        return 0;
     }
 
     private double convertMeters(double valueIn) {

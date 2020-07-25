@@ -24,8 +24,9 @@ public class ConvertPower {
                 return Double.parseDouble(valueFromUserIn) * 1000000;
             case "koń mechaniczny":
                 return Double.parseDouble(valueFromUserIn) * 735.5;
-            }
-        return 0;
+            default:
+                return 0;
+        }
     }
 
     private double convertKiloWatts(double valueIn) {

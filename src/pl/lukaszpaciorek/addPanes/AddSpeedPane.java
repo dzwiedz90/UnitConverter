@@ -1,13 +1,12 @@
 package pl.lukaszpaciorek.addPanes;
 
-import pl.lukaszpaciorek.convertUnits.ConvertLength;
-import pl.lukaszpaciorek.convertUnits.ConvertSpeed;
-import pl.lukaszpaciorek.convertUnits.SetConvertedValues;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import pl.lukaszpaciorek.convertUnits.ConvertSpeed;
+import pl.lukaszpaciorek.convertUnits.SetConvertedValues;
 
 public class AddSpeedPane implements ActionListener {
     JButton calculateSpeedButton;

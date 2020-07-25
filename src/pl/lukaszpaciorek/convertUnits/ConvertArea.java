@@ -31,8 +31,9 @@ public class ConvertArea {
                 return Double.parseDouble(valueFromUserIn) * 929.0304;
             case "mila^2":
                 return 0;
+            default:
+                return 0;
         }
-        return 0;
     }
 
     private double convertMeters(double valueIn) {
