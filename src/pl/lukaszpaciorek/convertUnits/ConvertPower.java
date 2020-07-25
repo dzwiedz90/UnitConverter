@@ -4,7 +4,6 @@ public class ConvertPower {
     private double[] convertedValues = new double[6];
 
     public ConvertPower(String valueFromUserIn, String unitFromUserIn) {
-//        {"W", "kW", "MW", "koń mechaniczny"};
         convertedValues[0] = convertWatts(valueFromUserIn, unitFromUserIn);
         convertedValues[1] = convertKiloWatts(convertedValues[0]);
         convertedValues[2] = convertMegaWatts(convertedValues[0]);
