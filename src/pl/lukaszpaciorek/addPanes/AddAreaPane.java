@@ -6,11 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import pl.lukaszpaciorek.convertUnits.ConvertArea;
+import pl.lukaszpaciorek.convertUnits.SetConvertedValues;
 
 public class AddAreaPane implements ActionListener {
-    String[] areaUnitsArray = {"centymetr^2", "metr^2", "kilometr^2", "cal^2", "stopa^2", "mila^2"};
     JButton calculateAreaButton;
     JPanel areaPaneUp;
+    JPanel areaPaneDown;
 
     public AddAreaPane(JTabbedPane tabbedPane) {
         addAreaPane(tabbedPane);
@@ -19,11 +20,12 @@ public class AddAreaPane implements ActionListener {
     private void addAreaPane(JTabbedPane tabbedPane) {
         JPanel areaPane = new JPanel();
         areaPaneUp = new JPanel();
-        JPanel areaPaneDown = new JPanel();
+        areaPaneDown = new JPanel();
 
         BorderLayout layout = new BorderLayout();
         areaPane.setLayout(layout);
 
+        String[] areaUnitsArray = {"centymetr^2", "metr^2", "kilometr^2", "cal^2", "stopa^2", "mila^2"};
         calculateAreaButton = new JButton("Oblicz");
         JTextField areaTextField = new JTextField("0", 5);
 
@@ -54,7 +56,8 @@ public class AddAreaPane implements ActionListener {
                 }
             }
 
-            ConvertArea convert = new ConvertArea(valueFromUser, unitFromUser, areaUnitsArray);
+            ConvertArea convert = new ConvertArea(valueFromUser, unitFromUser);
+            SetConvertedValues setValues = new SetConvertedValues(convert.getConvertedArea(), areaPaneDown);
         }
     }
 }

@@ -9,7 +9,6 @@ import pl.lukaszpaciorek.convertUnits.ConvertLength;
 import pl.lukaszpaciorek.convertUnits.SetConvertedValues;
 
 public class AddLengthPane implements ActionListener {
-    String[] lengthUnitsArray = {"centymetr", "metr", "kilometr", "cal", "stopa", "mila"};
     JButton calculateLengthButton;
     JPanel lengthPaneUp;
     JPanel lengthPaneDown;
@@ -26,6 +25,7 @@ public class AddLengthPane implements ActionListener {
         BorderLayout layout = new BorderLayout();
         lengthPane.setLayout(layout);
 
+        String[] lengthUnitsArray = {"centymetr", "metr", "kilometr", "cal", "stopa", "mila"};
         calculateLengthButton = new JButton("Oblicz");
         JTextField lengthTextField = new JTextField("0", 5);
 
@@ -57,7 +57,7 @@ public class AddLengthPane implements ActionListener {
             }
 
             ConvertLength convert = new ConvertLength(valueFromUser, unitFromUser);
-            SetConvertedValues setValues = new SetConvertedValues(convert.getConvertedLength(), lengthPaneDown);
+                SetConvertedValues setValues = new SetConvertedValues(convert.getConvertedLength(), lengthPaneDown);
         }
     }
 }

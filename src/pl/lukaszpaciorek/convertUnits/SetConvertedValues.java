@@ -14,7 +14,7 @@ public class SetConvertedValues {
             if (comp instanceof JPanel) {
                 for (Component comp2 : ((JPanel) comp).getComponents()) {
                     if (comp2 instanceof JTextField) {
-                        ((JTextField) comp2).setText(StringFormatting.buildOutputString(Double.toString(MyMath.round(valuesIn[i], 5))));
+                        ((JTextField) comp2).setText(StringFormatting.buildOutputString(Double.toString(MyMath.round(valuesIn[i], 6))));
                     }
                 }
             }

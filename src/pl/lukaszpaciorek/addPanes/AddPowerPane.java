@@ -5,8 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import pl.lukaszpaciorek.convertUnits.ConvertPower;
+import pl.lukaszpaciorek.convertUnits.SetConvertedValues;
+
 public class AddPowerPane implements ActionListener {
     JButton calculatePowerButton;
+    JPanel powerPaneUp;
+    JPanel powerPaneDown;
 
     public AddPowerPane(JTabbedPane tabbedPane) {
         addPowerPane(tabbedPane);
@@ -14,8 +19,8 @@ public class AddPowerPane implements ActionListener {
 
     private void addPowerPane(JTabbedPane tabbedPane) {
         JPanel powerPane = new JPanel();
-        JPanel powerPaneUp = new JPanel();
-        JPanel powerPaneDown = new JPanel();
+        powerPaneUp = new JPanel();
+        powerPaneDown = new JPanel();
 
         BorderLayout layout = new BorderLayout();
         powerPane.setLayout(layout);
@@ -24,7 +29,8 @@ public class AddPowerPane implements ActionListener {
         calculatePowerButton = new JButton("Oblicz");
         JTextField powerTextField = new JTextField("0", 5);
 
-        AddItemsToPanes addItems = new AddItemsToPanes(this, powerPaneUp, powerUnitsArray, calculatePowerButton, powerTextField, powerPaneDown);
+        AddItemsToPanes.addItemsToUpPane(this, powerPaneUp, powerUnitsArray, calculatePowerButton, powerTextField);
+        AddItemsToPanes.addItemsToDownPane(powerPaneDown, powerUnitsArray);
 
         powerPane.add(powerPaneUp, BorderLayout.NORTH);
         powerPane.add(powerPaneDown, BorderLayout.CENTER);
@@ -36,7 +42,22 @@ public class AddPowerPane implements ActionListener {
         Object source = event.getSource();
 
         if (source == calculatePowerButton) {
-            ;
+            JComboBox box;
+            String valueFromUser = "";
+            String unitFromUser = "";
+
+            for (Component comp : powerPaneUp.getComponents()) {
+                if (comp instanceof JComboBox) {
+                    box = (JComboBox) comp;
+                    unitFromUser = (String) box.getSelectedItem();
+                }
+                if (comp instanceof JTextField) {
+                    valueFromUser = ((JTextField) comp).getText();
+                }
+            }
+
+            ConvertPower convert = new ConvertPower(valueFromUser, unitFromUser);
+            SetConvertedValues setValues = new SetConvertedValues(convert.getConvertedPower(), powerPaneDown);
         }
     }
 }
