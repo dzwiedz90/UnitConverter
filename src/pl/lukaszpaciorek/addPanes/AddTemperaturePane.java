@@ -57,7 +57,7 @@ public class AddTemperaturePane implements ActionListener {
             }
 
             ConvertTemperature convert = new ConvertTemperature(valueFromUser, unitFromUser);
-            SetConvertedValues setValues = new SetConvertedValues(convert.getConvertedLength(), temperaturePaneDown);
+            SetConvertedValues setValues = new SetConvertedValues(convert.getConvertedTemperature(), temperaturePaneDown);
         }
     }
 }

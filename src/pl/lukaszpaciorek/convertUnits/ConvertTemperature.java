@@ -9,7 +9,7 @@ public class ConvertTemperature {
         convertedValues[2] = convertKelvins(convertedValues[0]);
     }
 
-    public double[] getConvertedLength() {
+    public double[] getConvertedTemperature() {
         return convertedValues;
     }
 
